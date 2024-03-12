@@ -25,7 +25,7 @@ func main() {
 
 - See [tailwind-merge](https://github.com/dcastil/tailwind-merge/blob/v2.2.1/docs/what-is-it-for.md)
 
-## [Limitations](https://github.com/dcastil/tailwind-merge/blob/v2.2.1/docs/limitations.md)-
+## [Limitations](https://github.com/dcastil/tailwind-merge/blob/v2.2.1/docs/limitations.md)
 
 - See [tailwind-merge](https://github.com/dcastil/tailwind-merge/blob/v2.2.1/docs/limitations.md)
 
