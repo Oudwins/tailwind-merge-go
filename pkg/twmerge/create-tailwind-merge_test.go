@@ -516,12 +516,20 @@ func TestTailwindMerge(t *testing.T) {
 		// 	in:  "grow', [null, false, [['grow-[2]']]]",
 		// 	out: "grow-[2]",
 		// },
+		// CUSTOM TESTS
+		{
+			// test case where there is modifier & maybePostfix which causes maybePostfix to be beyond size of baseClass
+			in:  "hover:bg-red-500/90",
+			out: "hover:bg-red-500/90",
+		},
 	}
 
 	for _, tc := range tt {
 		got := Merge(tc.in)
 		if areStringsEqual(got, tc.out) == false {
 			t.Errorf("twMerge failed -> | in: %v | %v != %v", tc.in, got, tc.out)
+		} else {
+			// t.Log("twMerge passed -> | in: ", tc.in, " | out: ", got, " | expected: ", tc.out)
 		}
 	}
 }
