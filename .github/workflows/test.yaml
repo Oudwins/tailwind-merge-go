@@ -1,4 +1,4 @@
-name: Go
+name: Tests
 
 on:
   push:
@@ -11,10 +11,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
+      - uses: actions/checkout@v4
       - name: Set up Go
-        uses: actions/setup-go@v3
+        uses: actions/setup-go@v4
       - name: Set up Make
         run: sudo apt-get install make
       - name: Run tests
