@@ -46,7 +46,7 @@ func MakeSplitModifiers(conf *TwMergeConfig) SplitModifiersFn {
 			baseClass = baseClassWithImportant
 		}
 
-		// fix case where there is modifier & maybePostfix which causes maybePostfix to be beyond size of baseClass
+		// fix case where there is modifier & maybePostfix which causes maybePostfix to be beyond size of baseClass!
 		if maybePostfixModPosition != -1 && maybePostfixModPosition > modifierStart {
 			maybePostfixModPosition -= modifierStart
 		}
