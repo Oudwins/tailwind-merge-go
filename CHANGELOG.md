@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.1](https://github.com/Oudwins/tailwind-merge-go/compare/v0.1.0...v0.1.1) (2024-03-12)
+
+
+### Bug Fixes
+
+* classes with modifiers and postfix causing string overflow ([dc989e6](https://github.com/Oudwins/tailwind-merge-go/commit/dc989e6df2a1452745be615f30163eeb5782c947))
+* typo causing cache to force program to hang indefinitely ([6a9dbee](https://github.com/Oudwins/tailwind-merge-go/commit/6a9dbee2fb5fcf2578caec62e46ee2d56221faa4))
+
 ## 0.1.0 (2024-03-12)
 
 
