@@ -20,6 +20,7 @@ func main() {
 - Supports Tailwind v3.0 up to v3.4
 - Support for extending the default configuration
 - Support for providing your own caching solution
+- Its in 0.1.0, can I use it? Sure! I will personally be deploying this to prod. It's only in pre 1.0 because there some extra features I want to add before the 1.0 release (see roadmap)
 
 ## [Why use it?](https://github.com/dcastil/tailwind-merge/blob/v2.2.1/docs/what-is-it-for.md)
 
@@ -38,6 +39,7 @@ func main() {
 - Build the class map on initialization and have a simple config style
 - replace regex with more performant solution
 - Move arbitrary value delimeters '[' & ']' to config somehow?
+- Plugins & easy plugin api.
 
 ## Acknowledgments
 
