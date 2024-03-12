@@ -28,6 +28,7 @@ func (lru *LRU) Get(key string) string {
 	lru.cacheMutex.RLock()
 	n := lru.cache[key]
 	if n == nil {
+		lru.cacheMutex.RUnlock()
 		return ""
 	}
 	lru.cacheMutex.RUnlock()
