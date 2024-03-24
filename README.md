@@ -30,9 +30,12 @@ func main() {
 
 - See [tailwind-merge](https://github.com/dcastil/tailwind-merge/blob/v2.2.1/docs/limitations.md)
 
+## Contributing
+
+Checkout the [contributing docs](./CONTRIBUTING.md)
+
 ## Roadmap
 
-- Write contributing docs
 - Improve current docs
 - Improve cache concurrent performance by locking on a per key basis -> https://github.com/EagleChen/mapmutex
 - Split code into multiple pkgs so in the twmerge pkg there is only the Merge & CreateTailwindMerge functions
