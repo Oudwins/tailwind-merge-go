@@ -10,7 +10,7 @@ Utility function to efficiently merge Tailwind CSS classes in Golang without sty
 import (
 	"fmt"
 
-	"github.com/Oudwins/tailwind-merge-go/pkg/twmerge"
+	twmerge "github.com/Oudwins/tailwind-merge-go"
 )
 
 func main() {
@@ -34,15 +34,74 @@ func main() {
 
 - See [tailwind-merge](https://github.com/dcastil/tailwind-merge/blob/v2.2.1/docs/limitations.md)
 
+## Advanced Examples
+
+You might also want to check out the advanced example at `/cmd/examples/advanced`
+
+### Provide Your Own or Extend Default Config
+
+```go
+import (
+		// Note the import path here is different from the default path. This is so you have access to all the custom functions, structs, etc that are used to build the twmerge config
+		twmerge "github.com/Oudwins/tailwind-merge-go/pkg/twmerge"
+)
+var TwMerger twmerge.TwMergeFn
+func main() {
+	// get the default config
+	config := twmerge.MakeDefaultConfig()
+
+	// do your modifications here
+
+	// create the merger
+	TwMerger = twmerge.CreateTwMerge(config, nil) // config, cache (if nil default will be used)
+
+
+	// example usage
+	m := TwMerger("px-4 px-10", "p-20")
+	fmt.Println(m) // output: "p-20"
+}
+```
+
+### Provide your own Cache
+
+The default cache is a LRU Cache and should be acceptable for most use cases. However, you might want to provide your own cache or modify the default creation parameters. Your cache must implement the interface defined at `/pkg/cache/cache.go`
+
+```go
+type ICache interface {
+	Get(string) string
+	Set(string, string) // key, value
+}
+```
+
+Here is an example of manually creating the default cache with a custom max capacity
+
+```go
+import (
+		twmerge "github.com/Oudwins/tailwind-merge-go/pkg/twmerge"
+		lru "github.com/Oudwins/tailwind-merge-go/pkg/lru"
+)
+var TwMerger twmerge.TwMergeFn
+func main() {
+	customCapacity := 10000
+	cache := lru.make(customCapacity)
+
+
+	// create the merger
+	TwMerger = twmerge.CreateTwMerge(nil, cache) // config, cache (if nil default will be used)
+
+	// example usage
+	m := TwMerger("px-4 px-10", "p-20")
+	fmt.Println(m) // output: "p-20"
+}
+```
+
 ## Contributing
 
 Checkout the [contributing docs](./CONTRIBUTING.md)
 
 ## Roadmap
 
-- Improve current docs
 - Improve cache concurrent performance by locking on a per key basis -> https://github.com/EagleChen/mapmutex
-- Split code into multiple pkgs so in the twmerge pkg there is only the Merge & CreateTailwindMerge functions
 - Build the class map on initialization and have a simple config style
 - replace regex with more performant solution
 - Move arbitrary value delimeters '[' & ']' to config somehow?
