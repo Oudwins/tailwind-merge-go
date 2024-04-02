@@ -3,24 +3,20 @@ package twmerge
 import (
 	"strings"
 
-	lru "github.com/Oudwins/tailwind-merge-go/pkg/cache"
+	cache "github.com/Oudwins/tailwind-merge-go/pkg/cache"
+	lru "github.com/Oudwins/tailwind-merge-go/pkg/lru"
 )
 
-func CreateTwMerge(config *TwMergeConfig, cache lru.Cache) func(args ...string) string {
-	if config == nil {
-		config = MakeDefaultConfig()
-	}
-	if cache == nil {
-		cache = lru.Make(config.MaxCacheSize)
-	}
+type TwMergeFn func(args ...string) string
 
-	splitModifiers := MakeSplitModifiers(config)
+func CreateTwMerge(config *TwMergeConfig, cache cache.ICache) TwMergeFn {
 
-	getClassGroupId := MakeGetClassGroupId(config)
+	var fnToCall TwMergeFn
+	var splitModifiers SplitModifiersFn
+	var getClassGroupId GetClassGroupIdfn
+	var mergeClassList func(classList string) string
 
-	mergeClassList := MakeMergeClassList(config, splitModifiers, getClassGroupId)
-
-	return func(args ...string) string {
+	merger := func(args ...string) string {
 		classList := strings.Join(args, " ")
 		cached := cache.Get(classList)
 		if cached != "" {
@@ -30,6 +26,29 @@ func CreateTwMerge(config *TwMergeConfig, cache lru.Cache) func(args ...string) 
 		merged := mergeClassList(classList)
 		cache.Set(classList, merged)
 		return merged
+	}
+
+	init := func(args ...string) string {
+		if config == nil {
+			config = MakeDefaultConfig()
+		}
+		if cache == nil {
+			cache = lru.Make(config.MaxCacheSize)
+		}
+
+		splitModifiers = MakeSplitModifiers(config)
+
+		getClassGroupId = MakeGetClassGroupId(config)
+
+		mergeClassList = MakeMergeClassList(config, splitModifiers, getClassGroupId)
+
+		fnToCall = merger
+		return fnToCall(args...)
+	}
+
+	fnToCall = init
+	return func(args ...string) string {
+		return fnToCall(args...)
 	}
 }
 
