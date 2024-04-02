@@ -1,7 +1,7 @@
 <div align="center">
     <br />
     <a href="https://github.com/Oudwins/tailwind-merge-go">
-        <img src="https://github.com/Oudwins/tailwind-merge-go/raw/assets/logo.svg" alt="tailwind-merge-go" height="150px" />
+        <img src="https://raw.githubusercontent.com/Oudwins/tailwind-merge-go/master/assets/logo.svg" alt="tailwind-merge-go" height="150px" />
     </a>
 </div>
 
