@@ -1,17 +1,16 @@
 package lru
 
-import "sync"
+import (
+	"sync"
+
+	"github.com/Oudwins/tailwind-merge-go/pkg/cache"
+)
 
 type node struct {
 	key  string
 	val  string
 	prev *node
 	next *node
-}
-
-type Cache interface {
-	Get(string) string
-	Set(string, string)
 }
 
 type LRU struct {
@@ -81,7 +80,7 @@ func (lru *LRU) remove(n *node) {
 	lru.capacity--
 }
 
-func Make(maxCapacity int) Cache {
+func Make(maxCapacity int) cache.ICache {
 	head := &node{}
 	tail := &node{}
 	tail.next = head
