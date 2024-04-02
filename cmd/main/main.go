@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/Oudwins/tailwind-merge-go/pkg/twmerge"
+	twmerge "github.com/Oudwins/tailwind-merge-go"
 )
 
 func main() {

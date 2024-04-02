@@ -10,7 +10,7 @@ Utility function to efficiently merge Tailwind CSS classes in Golang without sty
 import (
 	"fmt"
 
-	"github.com/Oudwins/tailwind-merge-go/pkg/twmerge"
+	twmerge "github.com/Oudwins/tailwind-merge-go"
 )
 
 func main() {
