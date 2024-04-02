@@ -1,3 +1,10 @@
+<div align="center">
+    <br />
+    <a href="https://github.com/Oudwins/tailwind-merge-go">
+        <img src="https://github.com/Oudwins/tailwind-merge-go/raw/assets/logo.svg" alt="tailwind-merge-go" height="150px" />
+    </a>
+</div>
+
 # tailwind-merge-go - Tailwind Merge For Golang
 
 <a href="https://pkg.go.dev/github.com/Oudwins/tailwind-merge-go"><img src="https://pkg.go.dev/badge/github.com//github.com/Oudwins/tailwind-merge-go.svg" alt="Go Reference" /></a>
@@ -29,6 +36,9 @@ func main() {
 ## [Why use it?](https://github.com/dcastil/tailwind-merge/blob/v2.2.1/docs/what-is-it-for.md)
 
 - See [tailwind-merge](https://github.com/dcastil/tailwind-merge/blob/v2.2.1/docs/what-is-it-for.md)
+- Or Watch this amazing video on it
+
+[Watch this introduction video from Simon Vrachliotis (@simonswiss) ↓ ![The "why" behind tailwind-merge](https://img.youtube.com/vi/tfgLd5ZSNPc/maxresdefault.jpg)](https://www.youtube.com/watch?v=tfgLd5ZSNPc (Watch YouTube video "Tailwind-Merge Is Incredibly Useful — And Here's Why!"))
 
 ## [Limitations](https://github.com/dcastil/tailwind-merge/blob/v2.2.1/docs/limitations.md)
 
@@ -112,4 +122,5 @@ Checkout the [contributing docs](./CONTRIBUTING.md)
 - Credit for all the hard work goes to [dcastil/tailwind-merge](https://github.com/dcastil/tailwind-merge/).
   - For the tests I used
   - For the approach and the code. I mostly translated from js to go
+  - For the logo
 - Big thank you to [tylantz/go-tailwind-merge/](https://github.com/tylantz/go-tailwind-merge/tree/main) for pushing me to finally do this by writing a very interesting version of this same idea (I encourage you to check it out) and for the code to generate a go test file based on tailwind-merge's tests
