@@ -76,7 +76,7 @@ func IsTshirtSize(val string) bool {
 }
 
 func IsShadow(val string) bool {
-	pattern := regexp.MustCompile(`^-?((\d+)?\.?(\d+)[a-z]+|0)_-?((\d+)?\.?(\d+)[a-z]+|0)`)
+	pattern := regexp.MustCompile(`^(inset_)?-?((\d+)?\.?(\d+)[a-z]+|0)_-?((\d+)?\.?(\d+)[a-z]+|0)`)
 	return pattern.MatchString(val)
 }
 
