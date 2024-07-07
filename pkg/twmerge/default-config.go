@@ -40,6 +40,7 @@ func getBreaks(groupId string) map[string]ClassPart {
 	}
 }
 
+// This is horrible code. I'm sorry. I wanted to get the package working without writing the code to generate the config. Now that it is working I plan to writing it.
 func MakeDefaultConfig() *TwMergeConfig {
 	return &TwMergeConfig{
 		ModifierSeparator: ':',
