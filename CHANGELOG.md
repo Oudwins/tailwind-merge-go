@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/Oudwins/tailwind-merge-go/compare/v0.1.1...v0.2.0) (2024-07-07)
+
+
+### Features
+
+* added top level package for simpler importing ([a81b22b](https://github.com/Oudwins/tailwind-merge-go/commit/a81b22b803c8827a2fd91e9287e5f7e425c9f015))
+
 ## [0.1.1](https://github.com/Oudwins/tailwind-merge-go/compare/v0.1.0...v0.1.1) (2024-03-12)
 
 
