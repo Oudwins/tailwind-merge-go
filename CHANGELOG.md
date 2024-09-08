@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.2.0](https://github.com/Oudwins/tailwind-merge-go/compare/v0.1.1...v0.2.0) (2024-09-08)
+
+
+### Features
+
+* added top level package for simpler importing ([a81b22b](https://github.com/Oudwins/tailwind-merge-go/commit/a81b22b803c8827a2fd91e9287e5f7e425c9f015))
+
+
+### Bug Fixes
+
+* inset shadow tailwind-merge v2.2.2 ([#9](https://github.com/Oudwins/tailwind-merge-go/issues/9)) ([e6eb778](https://github.com/Oudwins/tailwind-merge-go/commit/e6eb778ed46c8c7bec68c12e107733dfb4f8319d))
+* panic on empty string input is empty ([#12](https://github.com/Oudwins/tailwind-merge-go/issues/12)) ([f4afef0](https://github.com/Oudwins/tailwind-merge-go/commit/f4afef02f20437a65306d037e550a58f7fe88c7b))
+
 ## [0.1.1](https://github.com/Oudwins/tailwind-merge-go/compare/v0.1.0...v0.1.1) (2024-03-12)
 
 
