@@ -17,7 +17,10 @@ func CreateTwMerge(config *TwMergeConfig, cache cache.ICache) TwMergeFn {
 	var mergeClassList func(classList string) string
 
 	merger := func(args ...string) string {
-		classList := strings.Join(args, " ")
+		classList := strings.TrimSpace(strings.Join(args, " "))
+		if classList == "" {
+			return ""
+		}
 		cached := cache.Get(classList)
 		if cached != "" {
 			return cached
