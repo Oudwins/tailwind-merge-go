@@ -96,18 +96,12 @@ func IsNumber(val string) bool {
 
 func IsInteger(val string) bool {
 	_, err := strconv.Atoi(val)
-	if err != nil {
-		return false
-	}
-	return true
+	return err == nil
 }
 
 func IsFloat(val string) bool {
 	_, err := strconv.ParseFloat(val, 64)
-	if err != nil {
-		return false
-	}
-	return true
+	return err == nil
 }
 
 func IsLengthOnly(val string) bool {
