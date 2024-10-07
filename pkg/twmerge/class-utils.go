@@ -26,7 +26,7 @@ func MakeGetClassGroupId(conf *TwMergeConfig) GetClassGroupIdfn {
 			}
 		}
 
-		if classMap.Validators != nil && len(classMap.Validators) > 0 {
+		if len(classMap.Validators) > 0 {
 			remainingClass := strings.Join(classParts[i:], string(conf.ClassSeparator))
 
 			for _, validator := range classMap.Validators {

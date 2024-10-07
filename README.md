@@ -10,6 +10,7 @@
 <a href="https://pkg.go.dev/github.com/Oudwins/tailwind-merge-go"><img src="https://pkg.go.dev/badge/github.com//github.com/Oudwins/tailwind-merge-go.svg" alt="Go Reference" /></a>
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Go Report Card](https://goreportcard.com/badge/Oudwins/tailwind-merge-go)](https://goreportcard.com/report/github.com/Oudwins/tailwind-merge-go)
+[![Coverage Status](https://coveralls.io/repos/github/Oudwins/tailwind-merge-go/badge.svg?branch=master)](https://coveralls.io/github/Oudwins/tailwind-merge-go?branch=master)
 
 Utility function to efficiently merge Tailwind CSS classes in Golang without style conflicts. This library aims to be as close as possible to a 1:1 copy of the original [dcastil/tailwind-merge](https://github.com/dcastil/tailwind-merge/) library written in javascript.
 

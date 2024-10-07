@@ -528,9 +528,9 @@ func TestTailwindMerge(t *testing.T) {
 		got := Merge(tc.in)
 		if areStringsEqual(got, tc.out) == false {
 			t.Errorf("twMerge failed -> | in: %v | %v != %v", tc.in, got, tc.out)
-		} else {
+		} /* else {
 			// t.Log("twMerge passed -> | in: ", tc.in, " | out: ", got, " | expected: ", tc.out)
-		}
+		} */
 	}
 }
 
