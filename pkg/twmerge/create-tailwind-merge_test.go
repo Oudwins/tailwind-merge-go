@@ -522,6 +522,10 @@ func TestTailwindMerge(t *testing.T) {
 			in:  "hover:bg-red-500/90",
 			out: "hover:bg-red-500/90",
 		},
+		{
+			in:  "group-has-[[data-sidebar=menu-action]]/menu-item:pr-8 group-has-[[data-sidebar=menu-action]]/menu-item:pr-6",
+			out: "group-has-[[data-sidebar=menu-action]]/menu-item:pr-6",
+		},
 	}
 
 	for _, tc := range tt {
