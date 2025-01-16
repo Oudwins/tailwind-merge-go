@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/Oudwins/tailwind-merge-go/compare/v0.2.0...v0.2.1) (2025-01-16)
+
+
+### Bug Fixes
+
+* reset postfix modifier position if invalid ([#14](https://github.com/Oudwins/tailwind-merge-go/issues/14)) ([6db9533](https://github.com/Oudwins/tailwind-merge-go/commit/6db95337ca65a454040c62386411e714cc0b2769))
+
 ## [0.2.0](https://github.com/Oudwins/tailwind-merge-go/compare/v0.1.1...v0.2.0) (2024-09-08)
 
 
