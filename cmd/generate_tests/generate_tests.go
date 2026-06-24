@@ -91,7 +91,7 @@ func genHtml(tests []testBlock) string {
 	builder := strings.Builder{}
 	for _, block := range tests {
 		for _, test := range block.cases {
-			builder.WriteString(fmt.Sprintf("<div class='%s'></div>\n", test.in))
+			fmt.Fprintf(&builder, "<div class='%s'></div>\n", test.in)
 		}
 	}
 	return builder.String()
@@ -113,14 +113,14 @@ func TestTailwindMerge(t *testing.T) {
 	for _, block := range tests {
 		// write the description as a comment
 		if lastDescription != block.description {
-			builder.WriteString(fmt.Sprintf("\n	// %s\n", block.description))
+			fmt.Fprintf(&builder, "\n\t// %s\n", block.description)
 			lastDescription = block.description
 		}
 		for _, test := range block.cases {
-			builder.WriteString(fmt.Sprintf(`{
+			fmt.Fprintf(&builder, `{
 				in: "%s",
 				out: "%s",
-			},`, test.in, test.out))
+			},`, test.in, test.out)
 		}
 	}
 	builder.WriteString("\n	}\n")
