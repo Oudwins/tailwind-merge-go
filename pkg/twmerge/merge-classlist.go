@@ -62,7 +62,7 @@ func MakeMergeClassList(conf *TwMergeConfig, splitModifiers SplitModifiersFn, ge
  * - When an arbitrary variant appears, it must be preserved which modifiers are before and after it
  */
 func SortModifiers(modifiers []string) []string {
-	if modifiers == nil || len(modifiers) < 2 {
+	if len(modifiers) < 2 {
 		return modifiers
 	}
 
