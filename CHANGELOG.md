@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/Oudwins/tailwind-merge-go/compare/v0.2.1...v0.2.2) (2026-06-30)
+
+
+### Bug Fixes
+
+* lru in goroutines ([#20](https://github.com/Oudwins/tailwind-merge-go/issues/20)) ([4aedf04](https://github.com/Oudwins/tailwind-merge-go/commit/4aedf04260e67d4b702c1ed781b8a32e7fb834b4))
+
 ## [0.2.1](https://github.com/Oudwins/tailwind-merge-go/compare/v0.2.0...v0.2.1) (2025-01-16)
 
 
