@@ -68,6 +68,7 @@ func (lru *LRU) insertRight(n *node) {
 	n.prev = prev
 	n.next = lru.head
 	lru.head.prev = n
+	lru.capacity++
 }
 
 func (lru *LRU) remove(n *node) {
