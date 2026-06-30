@@ -538,6 +538,33 @@ func TestTailwindMerge(t *testing.T) {
 	}
 }
 
+func TestMergeWithSlashInModifier(t *testing.T) {
+	got := Merge("group-has-[[data-sidebar=menu-action]]/menu-item:pr-8 group-has-[[data-sidebar=menu-action]]/menu-item:pr-6")
+	want := "group-has-[[data-sidebar=menu-action]]/menu-item:pr-6"
+
+	if got != want {
+		t.Fatalf("Merge() = %q, want %q", got, want)
+	}
+}
+
+func TestSplitModifiersIgnoresSlashBeforeBaseClass(t *testing.T) {
+	splitModifiers := MakeSplitModifiers(MakeDefaultConfig())
+	baseClass, modifiers, hasImportant, maybePostfixModPosition := splitModifiers("group-has-[[data-sidebar=menu-action]]/menu-item:pr-8")
+
+	if baseClass != "pr-8" {
+		t.Fatalf("baseClass = %q, want %q", baseClass, "pr-8")
+	}
+	if len(modifiers) != 1 || modifiers[0] != "group-has-[[data-sidebar=menu-action]]/menu-item" {
+		t.Fatalf("modifiers = %#v, want %#v", modifiers, []string{"group-has-[[data-sidebar=menu-action]]/menu-item"})
+	}
+	if hasImportant {
+		t.Fatalf("hasImportant = true, want false")
+	}
+	if maybePostfixModPosition != -1 {
+		t.Fatalf("maybePostfixModPosition = %d, want -1", maybePostfixModPosition)
+	}
+}
+
 func areStringsEqual(s1, s2 string) bool {
 	// Split each string into individual parts
 	parts1 := strings.Split(s1, " ")
