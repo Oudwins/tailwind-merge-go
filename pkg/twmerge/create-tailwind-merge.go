@@ -2,6 +2,7 @@ package twmerge
 
 import (
 	"strings"
+	"sync"
 
 	cache "github.com/Oudwins/tailwind-merge-go/pkg/cache"
 	lru "github.com/Oudwins/tailwind-merge-go/pkg/lru"
@@ -11,7 +12,7 @@ type TwMergeFn func(args ...string) string
 
 func CreateTwMerge(config *TwMergeConfig, cache cache.ICache) TwMergeFn {
 
-	var fnToCall TwMergeFn
+	var once sync.Once
 	var splitModifiers SplitModifiersFn
 	var getClassGroupId GetClassGroupIdfn
 	var mergeClassList func(classList string) string
@@ -31,7 +32,7 @@ func CreateTwMerge(config *TwMergeConfig, cache cache.ICache) TwMergeFn {
 		return merged
 	}
 
-	init := func(args ...string) string {
+	build := func() {
 		if config == nil {
 			config = MakeDefaultConfig()
 		}
@@ -44,14 +45,11 @@ func CreateTwMerge(config *TwMergeConfig, cache cache.ICache) TwMergeFn {
 		getClassGroupId = MakeGetClassGroupId(config)
 
 		mergeClassList = MakeMergeClassList(config, splitModifiers, getClassGroupId)
-
-		fnToCall = merger
-		return fnToCall(args...)
 	}
 
-	fnToCall = init
 	return func(args ...string) string {
-		return fnToCall(args...)
+		once.Do(build)
+		return merger(args...)
 	}
 }
 
