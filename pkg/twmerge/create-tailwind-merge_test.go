@@ -3,6 +3,7 @@ package twmerge
 import (
 	"sort"
 	"strings"
+	"sync"
 	"testing"
 )
 
@@ -576,4 +577,18 @@ func areStringsEqual(s1, s2 string) bool {
 
 	// Compare the sorted parts
 	return strings.Join(parts1, " ") == strings.Join(parts2, " ")
+}
+
+func TestConcurrentFirstCalls(t *testing.T) {
+	merge := CreateTwMerge(nil, nil)
+
+	var wg sync.WaitGroup
+	for i := 0; i < 8; i++ {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			merge("p-4 p-8")
+		}()
+	}
+	wg.Wait()
 }
